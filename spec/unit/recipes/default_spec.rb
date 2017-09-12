@@ -14,12 +14,17 @@ describe 'cb_speedtest-cli::default' do
       runner = ChefSpec::ServerRunner.new(platform: 'centos', version: '7.3.1611')
       runner.converge(described_recipe)
     end
-
-# check if pip is installed/require pip?
-#
-# run pip install 
+    
     it 'converges successfully' do
       expect { chef_run }.to_not raise_error
+    end
+
+#    it 'includes pip recipe' do
+#      expect(chef_run).to include_recipe('pip::install_pip')
+#    end
+
+    it 'creates a file' do
+      expect(chef_run).to render_file('/etc/cron.weekly/speedtest-cli.sh').with_content(/pip install speedtest-cli --upgrade/)
     end
   end
 end
