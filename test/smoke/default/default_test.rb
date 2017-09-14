@@ -5,14 +5,14 @@
 # The Inspec reference, with examples and extensive documentation, can be
 # found at http://inspec.io/docs/reference/resources/
 
-unless os.windows?
-  # This is an example test, replace with your own test.
-  describe user('root') do
-    it { should exist }
-  end
+describe file('/etc/yum.repos.d/epel.repo') do
+  it { should exist }
 end
 
-# This is an example test, replace it with your own test.
+describe package('python2-pip') do
+  it { should be_installed }
+end
+
 describe file('/etc/cron.weekly/speedtest-cli.sh') do
   it { should exist }
 end
