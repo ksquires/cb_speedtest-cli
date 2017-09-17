@@ -4,7 +4,7 @@ maintainer_email 'you@example.com'
 license 'All Rights Reserved'
 description 'Installs/Configures cb_speedtest-cli'
 long_description 'Installs/Configures cb_speedtest-cli'
-version '0.1.2'
+version '0.1.3'
 chef_version '>= 12.1' if respond_to?(:chef_version)
 
 depends 'pip'

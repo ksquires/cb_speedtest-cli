@@ -16,4 +16,6 @@ end
 
 execute 'install_speedtest-cli' do
   command '/etc/cron.weekly/speedtest-cli.sh'
+  # only_if do !File.exist?('/usr/bin/speedtest-cli') end
+  only_if { !File.exist?('/usr/bin/speedtest-cli') }
 end
