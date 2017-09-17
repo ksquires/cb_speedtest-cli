@@ -15,7 +15,6 @@ cookbook_file '/etc/cron.weekly/speedtest-cli.sh' do
 end
 
 execute 'install_speedtest-cli' do
-  command '/etc/cron.weekly/speedtest-cli.sh'
-  # only_if do !File.exist?('/usr/bin/speedtest-cli') end
+  command '/usr/bin/pip install speedtest-cli'
   only_if { !File.exist?('/usr/bin/speedtest-cli') }
 end
