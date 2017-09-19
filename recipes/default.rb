@@ -6,7 +6,13 @@
 
 include_recipe 'pip::default'
 
-cookbook_file '/etc/cron.weekly/speedtest-cli.sh' do
+# clean up from previous location - we don't
+# need to check *every* week
+file '/etc/cron.weekly/speedtest-cli.sh' do
+  action :delete
+end
+
+cookbook_file '/etc/cron.monthly/speedtest-cli.sh' do
   source 'speedtest-cli.sh'
   owner 'root'
   group 'root'
