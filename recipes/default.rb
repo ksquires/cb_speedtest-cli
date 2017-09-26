@@ -22,5 +22,5 @@ end
 
 execute 'install_speedtest-cli' do
   command '/usr/bin/pip install speedtest-cli'
-  only_if { !File.exist?('/usr/bin/speedtest-cli') }
+  only_if { !File.exist?('/usr/bin/speedtest') }
 end

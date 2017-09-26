@@ -23,7 +23,7 @@ describe 'cb_speedtest-cli::default' do
     # end
 
     it 'creates a file' do
-      expect(chef_run).to render_file('/etc/cron.weekly/speedtest-cli.sh').with_content(/pip install speedtest-cli --upgrade/)
+      expect(chef_run).to render_file('/etc/cron.monthly/speedtest-cli.sh').with_content(/pip install speedtest-cli --upgrade/)
     end
   end
 end
