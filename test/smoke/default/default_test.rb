@@ -9,10 +9,6 @@ describe file('/etc/yum.repos.d/epel.repo') do
   it { should exist }
 end
 
-describe package('python2-pip') do
+describe package('python2-speedtest-cli') do
   it { should be_installed }
-end
-
-describe file('/etc/cron.weekly/speedtest-cli.sh') do
-  it { should exist }
 end

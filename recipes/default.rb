@@ -4,23 +4,17 @@
 #
 # Copyright:: 2017, The Authors, All Rights Reserved.
 
-include_recipe 'pip::default'
+include_recipe 'my_yum_epel::default'
 
-# clean up from previous location - we don't
-# need to check *every* week
+# clean up from previous locations - we don't use pip
+# anymore and don't need this
 file '/etc/cron.weekly/speedtest-cli.sh' do
   action :delete
 end
-
-cookbook_file '/etc/cron.monthly/speedtest-cli.sh' do
-  source 'speedtest-cli.sh'
-  owner 'root'
-  group 'root'
-  mode '0740'
-  action :create
+file '/etc/cron.monthly/speedtest-cli.sh' do
+  action :delete
 end
 
-execute 'install_speedtest-cli' do
-  command '/usr/bin/pip install speedtest-cli'
-  only_if { !File.exist?('/usr/bin/speedtest') }
+package 'python2-speedtest-cli' do
+  action :upgrade
 end

@@ -4,10 +4,10 @@ maintainer_email 'you@example.com'
 license 'All Rights Reserved'
 description 'Installs/Configures cb_speedtest-cli'
 long_description 'Installs/Configures cb_speedtest-cli'
-version '0.1.6'
+version '0.2.0'
 chef_version '>= 12.1' if respond_to?(:chef_version)
 
-depends 'pip'
+depends 'my_yum_epel'
 
 # The `issues_url` points to the location where issues for this cookbook are
 # tracked.  A `View Issues` link will be displayed on this cookbook's page when
