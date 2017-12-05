@@ -12,4 +12,3 @@ end
 describe package('python2-speedtest-cli') do
   it { should be_installed }
 end
-
